@@ -1,5 +1,5 @@
 `use strict`;
-const env = require("./.env");
+const env = require("../.env");
 const { MongoClient } = require("mongodb");
 async function connTest() {
   /**
@@ -60,4 +60,4 @@ async function listDatabases(client) {
 }
 
 // main().catch(console.error);
-module.exports = { mongoClient, listDatabases };
+module.exports = { connTest, mongoClient, listDatabases };
