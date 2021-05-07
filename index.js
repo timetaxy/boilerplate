@@ -3,13 +3,23 @@
 const express = require("express");
 const app = express();
 const port = 5000;
-const env = require("./.env");
+const config = require("./config/.env");
+const { User } = require("./models/user");
+const bodyParser = require("body-parser");
+
+//for data parsing
+//application x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 //#1
 const mongo = require("mongoose");
 console.log(`trying to mongo connecting...`);
 mongo
-  .connect(env.mongo.uri, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(config.mongo.uri, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => {
     console.log("mongo arrived");
   })
@@ -31,7 +41,14 @@ mongo
 // const { mongoMain } = require("./backlog");
 // mongoMain();
 
-// app.get("/", (req, res) => {
-//   res.send("express started");
-// });
-// app.listen(port, () => console.log(`svr listening on port ${port}`));
+app.get("/", (req, res) => {
+  res.send("express started");
+});
+app.post("/", (rea, res) => {
+  const user = new User();
+  user.save((err, userInfo) => {
+    if (err) return res.json({ success: false, err });
+    return res.status(200).json({ success: true });
+  });
+});
+app.listen(port, () => console.log(`svr listening on port ${port}`));

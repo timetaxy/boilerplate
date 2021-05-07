@@ -11,3 +11,26 @@ model > schema
 
 #unstaging
 git rm --cached node_modules -r
+
+//github local connect to remote
+secureshell ssh
+https://docs.github.com/en/authentication/connecting-to-github-with-ssh
+key gen
+ssh agent on
+ssh key add to agent
+
+npm i body-parser --save
+
+mongo test
+brew install mongosh
+mongosh "mongodb+srv://cluster0.sqdrj.mongodb.net/myFirstDatabase" --username [userId]
+
+## npm i nodemon --save-dev
+
+heroku : platform service, it's run above aws
+= aws.elastic beanstalk
+컨트롤 : aws more than heroku
+시간 : heroku
+비용 : aws
+
+---
