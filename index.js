@@ -4,9 +4,10 @@ const express = require("express");
 const app = express();
 const port = 5000;
 const config = require("./config/.env");
-const { User } = require("./models/user");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
+const { User } = require("./models/user");
+const { auth } = require("./middleware/auth");
 
 //for data parsing
 //application x-www-form-urlencoded
@@ -45,14 +46,14 @@ mongo
 app.get("/", (req, res) => {
   res.send("express started");
 });
-app.post("/", (rea, res) => {
-  const user = new User();
+app.post("/api/users/register", (req, res) => {
+  const user = new User(req.body);
   user.save((err, userInfo) => {
     if (err) return res.json({ success: false, err });
     return res.status(200).json({ success: true });
   });
 });
-app.post("/login", (rea, res) => {
+app.post("/api/users/login", (req, res) => {
   //todo
   //search exists, if exists check password, if password validated generate token
 
@@ -74,6 +75,19 @@ app.post("/login", (rea, res) => {
         .status(200)
         .json({ loginSuccess: true, userId: user._id });
     });
+  });
+});
+app.get("/api/users/auth", auth, (req, res) => {
+  //until this, it is auth true
+  res.status(200).json({
+    _id: req.user._id,
+    isAdmin: req.user.role === 0 ? false : true,
+    isAuth: true,
+    email: req.user.emal,
+    name: req.user.name,
+    lastname: req.user.lastname,
+    role: req.user.role,
+    image: req.user.image,
   });
 });
 app.listen(port, () => console.log(`svr listening on port ${port}`));

@@ -69,5 +69,17 @@ userSchema.methods.generateToken = function (cb) {
     cb(null, user);
   });
 };
+userSchema.statics.findByToken = function (token, cb) {
+  var user = this;
+  //token decode
+  //https://www.npmjs.com/package/jsonwebtoken
+  jwt.verify(token, "secretToken", function (err, decoded) {
+    //from user id, compare each user id
+    user.findOne({ _id: decoded, token: token }, function (err, user) {
+      if (err) return cb(err);
+      cb(null, user);
+    });
+  });
+};
 const User = mongo.model("User", userSchema);
 module.exports = { User };
