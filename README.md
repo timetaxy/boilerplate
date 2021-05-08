@@ -41,3 +41,6 @@ heroku : platform service, it's run above aws
 
 save 전 mongo model 에 전처리로 암호화
 https://www.npmjs.com/package/bcrypt
+
+npm i jsonwebtoken --save
+npm i cookie-parser --save

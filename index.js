@@ -6,12 +6,13 @@ const port = 5000;
 const config = require("./config/.env");
 const { User } = require("./models/user");
 const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
 
 //for data parsing
 //application x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
+app.use(cookieParser());
 //#1
 const mongo = require("mongoose");
 console.log(`trying to mongo connecting...`);
@@ -49,6 +50,30 @@ app.post("/", (rea, res) => {
   user.save((err, userInfo) => {
     if (err) return res.json({ success: false, err });
     return res.status(200).json({ success: true });
+  });
+});
+app.post("/login", (rea, res) => {
+  //todo
+  //search exists, if exists check password, if password validated generate token
+
+  User.findOne({ email: req.body.email }, (err, user) => {
+    if (!user) {
+      return res.json({
+        loginSuccess: false,
+        message: "not exist from this email",
+      });
+    }
+    user.comparePassword(req.body.password, (err, isMatch) => {
+      if (!isMatch)
+        return res.json({ loginSuccess: false, message: "passwrod is false" });
+    });
+    user.generateToken((err, user) => {
+      if (err) return res.status(400).send(err);
+      res
+        .cookie("x_auth", user.token)
+        .status(200)
+        .json({ loginSuccess: true, userId: user._id });
+    });
   });
 });
 app.listen(port, () => console.log(`svr listening on port ${port}`));
