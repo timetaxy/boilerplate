@@ -1,4 +1,7 @@
 const mongo = require("mongoose");
+const bcrypt = require("bcrypt");
+const saltRounds = 10;
+
 const userSchema = new mongo.Schema({
   name: {
     type: String,
@@ -28,6 +31,18 @@ const userSchema = new mongo.Schema({
   tokenExp: {
     type: Number,
   },
+});
+
+userSchema.pre("save", function (next) {
+  var user = this;
+  bcrypt.genSalt(saltRounds, function (err, salt) {
+    if (err) return next(err);
+    bcrypt.hash(user.password, salt, function (err, hash) {
+      if (err) return next(err);
+      user.password = hash;
+      next();
+    });
+  });
 });
 const User = mongo.model("User", userSchema);
 module.exports = { User };

@@ -27,6 +27,8 @@ mongosh "mongodb+srv://cluster0.sqdrj.mongodb.net/myFirstDatabase" --username [u
 
 ## npm i nodemon --save-dev
 
+---
+
 heroku : platform service, it's run above aws
 = aws.elastic beanstalk
 컨트롤 : aws more than heroku
@@ -34,3 +36,8 @@ heroku : platform service, it's run above aws
 비용 : aws
 
 ---
+
+# npm i bcrypt --save
+
+save 전 mongo model 에 전처리로 암호화
+https://www.npmjs.com/package/bcrypt
