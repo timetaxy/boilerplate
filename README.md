@@ -83,3 +83,5 @@ Auth(hoc) : 해당유저 권환체크 해당 component로 가기 전 체크
 hoc, utils : Higher Order omponent, 여러 곳에서 사용하는 것
 
 삭제:App.test.js, logo.svg
+
+extension react snippet install
