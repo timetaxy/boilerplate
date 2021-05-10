@@ -75,9 +75,11 @@ webpack 관리 src 하위만, (public은 아님), 이미지 같은 것 src 하�
 
 mkdir and <structure detail>
 actions, reducer : for Redux
-components/view/LandingPage : for Page
+components/view/LandingPage,LoginPage,NavBar,RegisterPage,Footer : for Page
 components/view/Sections : css, component
 App.js : Routing 처리
 Config.js : 환경변수
 Auth(hoc) : 해당유저 권환체크 해당 component로 가기 전 체크
 hoc, utils : Higher Order omponent, 여러 곳에서 사용하는 것
+
+삭제:App.test.js, logo.svg
