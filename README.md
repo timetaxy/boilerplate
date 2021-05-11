@@ -85,3 +85,10 @@ hoc, utils : Higher Order omponent, 여러 곳에서 사용하는 것
 삭제:App.test.js, logo.svg
 
 extension react snippet install
+
+페이지간 이동시 react router dom 을 사용
+https://reacttraining.com/
+https://v5.reactrouter.com/web/example/basic
+
+cd client
+npm i react-router-dom --save
