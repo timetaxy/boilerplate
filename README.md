@@ -97,3 +97,10 @@ npm run start
 App.js , switch not exported issue, 현재 버전v6, 참고사이트 버전 v5
 npm uninstall react-router-dom
 npm install react-router-dom@5
+
+refactoring
+<Route path="/register">
+<RegisterPage />
+</Route>
+
+<Route exact path="/register" component={RegisterPage} />
