@@ -104,3 +104,8 @@ refactoring
 </Route>
 
 <Route exact path="/register" component={RegisterPage} />
+
+---
+
+jquery 사용할때 ajax http service
+/client npm i axios --save
