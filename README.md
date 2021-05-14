@@ -109,3 +109,14 @@ refactoring
 
 jquery 사용할때 ajax http service
 /client npm i axios --save
+
+cors
+cross origin resource sharing
+다른 도메인 통신 경우(포트 포함)
+
+각 소스에 cors 정책 or Proxy 로 해결
+https://create-react-app.dev/docs/proxying-api-requests-in-development/
+Configuring the Proxy Manually#
+$ npm install http-proxy-middleware --save
+$ # or
+$ yarn add http-proxy-middleware
