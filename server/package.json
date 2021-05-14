@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon index.js",
-    "back": "node index.js"
+    "back": "node index.js",
+    "devcon":"concurrently \"npm run back\" \"npm run start --prefix ../client\""
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
   "dependencies": {
     "bcrypt": "^5.0.1",
     "body-parser": "^1.19.1",
+    "concurrently": "^6.4.0",
     "cookie-parser": "^1.4.6",
     "express": "^4.17.1",
     "json-web-token": "^3.2.0",

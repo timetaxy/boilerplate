@@ -116,7 +116,74 @@ cross origin resource sharing
 
 각 소스에 cors 정책 or Proxy 로 해결
 https://create-react-app.dev/docs/proxying-api-requests-in-development/
+
+---
+
 Configuring the Proxy Manually#
 $ npm install http-proxy-middleware --save
 $ # or
 $ yarn add http-proxy-middleware
+Next, create src/setupProxy.js and place the following contents in it:
+
+Copy
+const { createProxyMiddleware } = require('http-proxy-middleware');
+
+module.exports = function(app) {
+// ...
+};
+
+---
+
+but it is not working
+delete the file, and setting proxy in package.json file
+
+proxy server: 중간 인터넷 접속 제어 / 캐쉬이용 빠른 인터넷 / 보안 제공 / 이용제한 사이트 접근 가능
+
+---
+
+concurrently: back front on at once
+in server dir
+npm install concurrently --save
+package json 기동할 곳(aerver)에서 script 추가
+"devcon":"concurrently \"npm run back\" \"npm run start --prefix ../client\""
+
+---
+
+css framework
+material ui / react bootstrap / semantic ui / ant design / materialize
+추천
+https://ant.design - 단점: 용량이 크다, 스타일 깔끔, 엔터프라이즈 환경적 디자인, 편하다
+https://ant.design/docs/react/getting-started
+
+in client dir
+npm i antd --save
+index.js < import "antd/dist/antd.css";
+
+---
+
+# redux?
+
+redux 상태state관리 라이브러리
+state container?
+props :property, 컨포넌트간 연결, 부모>자식 단방향만, immutable 부모에서 자식으로 내렸을 때 값 바뀔 수 없다 다시 내려줘야 함
+형식 <Test messages={messages}/>
+state :mutable 값 변경 가능, 값 변경시 리렌더링됨
+형식 state={message:''}
+
+redux가 없으면 산발적으로 state를 주고 받아야 하지만, redux에서 한 곳에 보관 관리 해줌
+결과적으로 없을 때는 component 변경된 상태를 한단계씩 이동하여 주고 받아야 하지만, redux store에서 바로 접근 할 수 있도록 해준다.
+redux 데이터 플로우 : action-reducer-store-react component-action...
+:strict unidirectinal 단방향
+reducer:이전state와 action obj 받은 후 nextstate를 return
+store :state를 랩핑, 여러 state관리 매서드 제공
+
+---
+
+#redux install
+in client
+npm i redux react-redux redux-promise redux-thunk --save
+
+promise, thunk : 미들웨어, 잘 쓰도록 도와줌
+store 안의 state를
+
+##reduxup부터 install은 됨
