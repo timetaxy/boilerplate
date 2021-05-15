@@ -187,3 +187,7 @@ promise, thunk : 미들웨어, 잘 쓰도록 도와줌
 store 안의 state를 변경 dispatch.action 객체 형식 plainobject 일반reduxstore/ promise > redux-promise/ functions >redux-thunk
 
 ##reduxup부터 install은 됨
+redux 연결 : index.js Provider import, wrapping
+
+reducer 세팅
+redux devTools chrome extension install
