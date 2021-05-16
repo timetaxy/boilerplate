@@ -191,3 +191,18 @@ redux 연결 : index.js Provider import, wrapping
 
 reducer 세팅
 redux devTools chrome extension install
+
+store의 변하는 값 마지막에 반환하는 것이 reducer, 각 state별로 존재
+combinereducer는 root reducer에서 하나로 합쳐줌 : \_reducers\.index.js
+
+---
+
+react & reacthook,
+class components:더 많은 기능, 코드복잡, 성능 느림
+& functional components:기능은 한정, 코드 간단, 성능 향상
+react 16.8 hook 이후 functional component에서도 라이프사이클 등 기능 쓸 수 있게 됨
+
+functional : const[a,b]=useState("") / useEffect()
+
+class : constructor(props) / componentDidMount()
+실행순서constrctor render componentDidmount
