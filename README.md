@@ -206,3 +206,11 @@ functional : const[a,b]=useState("") / useEffect()
 
 class : constructor(props) / componentDidMount()
 실행순서constrctor render componentDidmount
+
+---
+
+## 원래 로그인 formik yup 사용하면 더 다이나믹해짐
+
+---
+
+## 참고 react:생태계 vs vue:쉬움, 문법 간단
