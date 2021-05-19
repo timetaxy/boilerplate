@@ -1,6 +1,7 @@
-import { Axios } from "axios";
+// import { Axios } from "axios";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { loginUser } from "../../../_actions/user_action";
 
 function LoginPage() {
   const dispatch = useDispatch();
@@ -19,7 +20,6 @@ function LoginPage() {
     // console.log(`Password ${Password}`);
     let body = { email: Email, password: Password };
     dispatch(loginUser(body));
-    Axios.post("/api/user/login", body), then((response) => {});
   };
   return (
     <div
