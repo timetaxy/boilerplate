@@ -1,5 +1,7 @@
 # node_boilerplate
 
+:project for node & react basic course pratice
+
 보일러 플레이트
 구태의연 하게 항상 하는 것
 nodejs 이전에는 브라우저에서만
@@ -210,6 +212,12 @@ class : constructor(props) / componentDidMount()
 ---
 
 ## 원래 로그인 formik yup 사용하면 더 다이나믹해짐
+
+---
+
+auth
+hoc:higher-order-component
+다른 컴포넌트 받아 새로운 컴포넌트 리턴하는 function
 
 ---
 
